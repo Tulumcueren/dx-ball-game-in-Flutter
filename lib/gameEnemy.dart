@@ -36,7 +36,10 @@ class Enemy {
   }
 
   bool EnemyFinder(int x, int y) {
-    EnemyMap.indexWhere((element) => element.x == "x$x" && element.y == "y$y");
-    return true;
+    final int finded = EnemyMap.indexWhere(
+        (element) => element.x == "x$x" && element.y == "y$y");
+    return finded != -1
+        ? EnemyMap[finded].X == x && EnemyMap[finded].Y == y
+        : false;
   }
 }
