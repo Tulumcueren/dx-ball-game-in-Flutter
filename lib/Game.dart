@@ -1,6 +1,7 @@
 // ignore: file_names
 import 'dart:math';
 
+import 'package:antiyoy/gameEnemy.dart';
 import 'package:flutter/material.dart';
 import 'Player.dart';
 import 'Kutu.dart';
@@ -22,7 +23,10 @@ class _GameState extends State<Game> {
       gamesizeX: 13,
       gamesizeY: 25,
       playerWidth: 1);
+  Enemy gameLevel1 = Enemy(levelX: 3, levelY: 3);
+
   Column _provA() {
+    gameLevel1.EnemyGenerator();
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -41,7 +45,7 @@ class _GameState extends State<Game> {
                             y == (player.gamesizeY / 2).toInt()
                         ? Kutu(status: Colors.amber, ball: true)
                         : Kutu(
-                            status: Random().nextInt(10) == y
+                            status: gameLevel1.EnemyFinder(x, y)
                                 ? Colors.blueGrey.shade400
                                 : Colors.amber,
                             ball: false,
