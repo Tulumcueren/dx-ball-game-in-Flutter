@@ -1,4 +1,6 @@
 // ignore: file_names
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'Player.dart';
 import 'Kutu.dart';
@@ -20,7 +22,6 @@ class _GameState extends State<Game> {
       gamesizeX: 13,
       gamesizeY: 25,
       playerWidth: 1);
-
   Column _provA() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -40,7 +41,9 @@ class _GameState extends State<Game> {
                             y == (player.gamesizeY / 2).toInt()
                         ? Kutu(status: Colors.amber, ball: true)
                         : Kutu(
-                            status: Colors.amber,
+                            status: Random().nextInt(10) == y
+                                ? Colors.blueGrey.shade400
+                                : Colors.amber,
                             ball: false,
                           )
             ],
