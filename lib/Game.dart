@@ -1,6 +1,3 @@
-// ignore: file_names
-import 'dart:math';
-
 import 'package:antiyoy/gameEnemy.dart';
 import 'package:flutter/material.dart';
 import 'Player.dart';
@@ -23,7 +20,7 @@ class _GameState extends State<Game> {
       gamesizeX: 13,
       gamesizeY: 25,
       playerWidth: 1);
-  Enemy gameLevel1 = Enemy(levelX: 3, levelY: 3);
+  Enemy gameLevel1 = Enemy(levelX: 13, levelY: 25);
 
   Column _provA() {
     gameLevel1.EnemyGenerator();
