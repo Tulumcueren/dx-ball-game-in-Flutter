@@ -40,9 +40,13 @@ class Enemy {
       print(element.X);
       if (element.X == x) {
         return true;
-      }
+      }  /* (element.x == "x$x" && element.y == "y$y") */
     } */
+    bool result = false;
+    for (EnemysMapping element in EnemyMap) {
+      element.X == x && element.Y == y ? result = true : false;
+    }
 
-    return false;
+    return result;
   }
 }

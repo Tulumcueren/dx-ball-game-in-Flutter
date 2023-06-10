@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:antiyoy/Ball.dart';
 import 'package:antiyoy/gameEnemy.dart';
 import 'package:flutter/material.dart';
 import 'Player.dart';
@@ -20,7 +23,8 @@ class _GameState extends State<Game> {
       gamesizeX: 13,
       gamesizeY: 25,
       playerWidth: 1);
-  Enemy gameLevel1 = Enemy(levelX: 13, levelY: 25);
+  Enemy gameLevel1 = Enemy(levelX: 13, levelY: 10);
+  Ball gameBall = Ball(ballPositionX: 5, ballPositionY: 6);
 
   Column _provA() {
     gameLevel1.EnemyGenerator();
@@ -38,8 +42,7 @@ class _GameState extends State<Game> {
                         status: Colors.blueAccent,
                         ball: false,
                       )
-                    : (player.gamesizeX / 2).toInt() == x &&
-                            y == (player.gamesizeY / 2).toInt()
+                    : gameBall.centerBall(x, y)
                         ? Kutu(status: Colors.amber, ball: true)
                         : Kutu(
                             status: gameLevel1.EnemyFinder(x, y)
@@ -54,6 +57,23 @@ class _GameState extends State<Game> {
   }
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {
+        if (gameBall.ballPositionX == player.positionX.toInt() &&
+            gameBall.ballPositionY == player.positionY.toInt()) {
+          gameBall.ballUpping();
+        }
+
+        gameBall.ballNewtoning();
+        print(
+            "Player Position: X :${player.positionX} Y:${player.positionY}    Ball Position: X:${gameBall.ballPositionX} Y:${gameBall.ballPositionY}");
+      });
+    });
+  }
+
   Widget build(BuildContext context) {
     return Column(
       // x1 x2 x3 y1 y2 y3
