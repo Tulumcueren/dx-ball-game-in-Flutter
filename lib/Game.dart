@@ -27,7 +27,6 @@ class _GameState extends State<Game> {
   Ball gameBall = Ball(ballPositionX: 5, ballPositionY: 6);
 
   Column _provA() {
-    gameLevel1.EnemyGenerator();
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -58,16 +57,23 @@ class _GameState extends State<Game> {
 
   @override
   void initState() {
+    gameLevel1.EnemyGenerator();
+
     // TODO: implement initState
     super.initState();
-    Timer.periodic(Duration(seconds: 1), (timer) {
+    Timer.periodic(Duration(milliseconds: 200), (timer) {
       setState(() {
-        if (gameBall.ballPositionX == player.positionX.toInt() &&
-            gameBall.ballPositionY == player.positionY.toInt()) {
-          gameBall.ballUpping();
-        }
+        /*  gameBall.upping == false
+            ? gameBall.ballPositionY += 1
+            : gameBall.upping == true
+                ? gameBall.ballPositionY -= 1
+                : gameBall.ballPositionY;
+        gameBall.ballPositionY == player.positionY.toInt() - 1
+            ? gameBall.upping = true
+            : gameBall.upping; */
+        gameBall.ballXYMovmentManager(
+            1, player.positionY.toInt(), player.positionX.toInt(), 13, 25);
 
-        gameBall.ballNewtoning();
         print(
             "Player Position: X :${player.positionX} Y:${player.positionY}    Ball Position: X:${gameBall.ballPositionX} Y:${gameBall.ballPositionY}");
       });
