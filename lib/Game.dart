@@ -24,7 +24,7 @@ class _GameState extends State<Game> {
       gamesizeY: 25,
       playerWidth: 1);
   Enemy gameLevel1 = Enemy(levelX: 13, levelY: 10);
-  Ball gameBall = Ball(ballPositionX: 5, ballPositionY: 6);
+  Ball gameBall = Ball(ballPositionX: 6, ballPositionY: 12);
 
   Column _provA() {
     return Column(
@@ -45,7 +45,7 @@ class _GameState extends State<Game> {
                         ? Kutu(status: Colors.amber, ball: true)
                         : Kutu(
                             status: gameLevel1.EnemyFinder(x, y)
-                                ? Colors.blueGrey.shade400
+                                ? (Colors.blueGrey.shade400)
                                 : Colors.amber,
                             ball: false,
                           )
@@ -58,7 +58,7 @@ class _GameState extends State<Game> {
   @override
   void initState() {
     gameLevel1.EnemyGenerator();
-
+    gameBall.getINEnemys(gameLevel1.EnemyMap);
     // TODO: implement initState
     super.initState();
     Timer.periodic(Duration(milliseconds: 200), (timer) {

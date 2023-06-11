@@ -1,9 +1,11 @@
+import 'package:antiyoy/gameEnemy.dart';
+
 class Ball {
   int ballPositionX = 0;
   int ballPositionY = 0;
   bool upping = false;
   int righting = 0;
-
+  List<EnemysMapping> enemyMapping = [];
   Ball({
     required this.ballPositionX,
     required this.ballPositionY,
@@ -18,6 +20,10 @@ class Ball {
 
   int ballUp() {
     return ballPositionY -= 1;
+  }
+
+  List<EnemysMapping> getINEnemys(List<EnemysMapping> enemyData) {
+    return enemyMapping = enemyData;
   }
 
 //rightin 0 1 2
@@ -46,6 +52,13 @@ class Ball {
         ballPositionX += speed;
         ballPositionY -= speed;
       } */
+
+    for (int ze = 0; ze < enemyMapping.length; ze++) {
+      enemyMapping[ze].X == ballPositionX &&
+              enemyMapping[ze].Y + 1 == ballPositionY
+          ? (upping = false, enemyMapping.remove(enemyMapping[ze]))
+          : print(enemyMapping[ze]);
+    }
     upping == false
         ? ballPositionY += speed
         : upping == true
@@ -110,4 +123,7 @@ class Ball {
     ballPositionY == playerpositionY - 1 && playerpositionX + 2 == ballPositionX
         ? (upping = true, righting = 1)
         : upping; */
+  bool ballTouchOnEnemy() {
+    return true;
+  }
 }
