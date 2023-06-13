@@ -62,12 +62,11 @@ class _GameState extends State<Game> {
     super.initState();
     Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {
-        if (gameBall.ballPositionX == player.positionX.toInt() &&
-            gameBall.ballPositionY == player.positionY.toInt()) {
-          gameBall.ballUpping();
-        }
+        gameBall.ballPositionX >= player.positionX.toInt() &&
+                gameBall.ballPositionY >= player.positionY.toInt()
+            ? gameBall.ballPositionY -= 1
+            : gameBall.ballNewtoning();
 
-        gameBall.ballNewtoning();
         print(
             "Player Position: X :${player.positionX} Y:${player.positionY}    Ball Position: X:${gameBall.ballPositionX} Y:${gameBall.ballPositionY}");
       });
