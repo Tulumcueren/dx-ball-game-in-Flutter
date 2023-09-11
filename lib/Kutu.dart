@@ -24,6 +24,8 @@ class _KutuState extends State<Kutu> {
           borderRadius: BorderRadius.circular(2),
           color: widget.status,
           border: Border.all(width: 1, color: Colors.black)),
+      width: 25,
+      height: 25,
       child: widget.ball
           ? Container(
               decoration: BoxDecoration(
@@ -31,8 +33,6 @@ class _KutuState extends State<Kutu> {
                   borderRadius: BorderRadius.circular(25)),
             )
           : Container(),
-      width: 25,
-      height: 25,
     );
   }
 }

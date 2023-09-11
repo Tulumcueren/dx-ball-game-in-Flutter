@@ -59,24 +59,16 @@ class _GameState extends State<Game> {
   void initState() {
     gameLevel1.EnemyGenerator();
     gameBall.getINEnemys(gameLevel1.EnemyMap);
-    // TODO: implement initState
     super.initState();
-    Timer.periodic(Duration(milliseconds: 200), (timer) {
+    Timer.periodic(Duration(milliseconds: 80), (timer) {
       setState(() {
-        /*  gameBall.upping == false
-            ? gameBall.ballPositionY += 1
-            : gameBall.upping == true
-                ? gameBall.ballPositionY -= 1
-                : gameBall.ballPositionY;
-        gameBall.ballPositionY == player.positionY.toInt() - 1
-            ? gameBall.upping = true
-            : gameBall.upping; */
         gameBall.ballXYMovmentManager(
             1, player.positionY.toInt(), player.positionX.toInt(), 13, 25);
 
         print(
             "Player Position: X :${player.positionX} Y:${player.positionY}    Ball Position: X:${gameBall.ballPositionX} Y:${gameBall.ballPositionY}");
       });
+      if (gameBall.ballPositionY >= 24) timer.cancel();
     });
   }
 
