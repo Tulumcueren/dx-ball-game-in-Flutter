@@ -3,20 +3,20 @@
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class Kutu extends StatefulWidget {
+class Box extends StatefulWidget {
   Color status = Colors.blueAccent;
   bool ball = false;
-  Kutu({
+  Box({
     Key? key,
     required this.status,
     required this.ball,
   }) : super(key: key);
 
   @override
-  State<Kutu> createState() => _KutuState();
+  State<Box> createState() => _BoxState();
 }
 
-class _KutuState extends State<Kutu> {
+class _BoxState extends State<Box> {
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -4,10 +4,10 @@
 
 ## Getting Started
 
-Before Clone Link
-After From Terminal write flutter pub get
-and flutter run starts game.
-you can change the box colors and change distance, and 
-instead of putting cubes you can put any image you want
+-Before Clone Link(`<br>`)
+After From Terminal write flutter pub get(`<br>`)
+and flutter run starts game.(`<br>`)
+you can change the Box colors and change distance, and (`<br>`)
+instead of putting cubes you can put any image you want(`<br>`)
 
 

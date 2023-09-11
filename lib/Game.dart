@@ -4,7 +4,7 @@ import 'package:antiyoy/Ball.dart';
 import 'package:antiyoy/gameEnemy.dart';
 import 'package:flutter/material.dart';
 import 'Player.dart';
-import 'Kutu.dart';
+import 'Box.dart';
 
 class Game extends StatefulWidget {
   const Game({super.key});
@@ -37,13 +37,13 @@ class _GameState extends State<Game> {
             children: [
               for (int x = 0; x < player.gamesizeX; x++)
                 player.playerPositioninMap(x, y)
-                    ? Kutu(
+                    ? Box(
                         status: Colors.blueAccent,
                         ball: false,
                       )
                     : gameBall.centerBall(x, y)
-                        ? Kutu(status: Colors.amber, ball: true)
-                        : Kutu(
+                        ? Box(status: Colors.amber, ball: true)
+                        : Box(
                             status: gameLevel1.EnemyFinder(x, y)
                                 ? (Colors.blueGrey.shade400)
                                 : Colors.amber,
