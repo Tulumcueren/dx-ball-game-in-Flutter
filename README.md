@@ -1,5 +1,5 @@
 # DxBall Flutter Edition
-[]!
+![](https://github.com/Tulumcueren/dx-ball-game-in-Flutter/blob/main/Protatype.gif)
 
 
 ## Getting Started
